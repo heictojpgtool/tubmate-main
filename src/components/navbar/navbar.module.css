@@ -1,0 +1,86 @@
+.header {
+  background: #f3fbff;
+  border-bottom: 1px solid #e6eef5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* BRAND */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #000;
+}
+
+.logo {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #1d9bf0, #0b5ed7);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+}
+
+.downloadIcon {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 22px;
+  height: 22px;
+  background: #22c55e;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TEXT */
+.brandText h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.brandText h1 span {
+  color: #1d9bf0;
+}
+
+.brandText p {
+  font-size: 14px;
+  color: #555;
+  margin: 2px 0 0;
+}
+
+/* NAV */
+.navLink {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1d9bf0;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .brandText p {
+    display: none;
+  }
+}

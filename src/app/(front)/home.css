@@ -1,0 +1,270 @@
+.hero-downloader {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f6fbff;
+}
+
+.hero-downloader h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.hero-downloader h1 span {
+  color: #1d9bf0;
+}
+
+.hero-sub {
+  max-width: 700px;
+  margin: 15px auto 35px;
+  color: #555;
+}
+
+.download-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 650px;
+  margin: auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.download-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.download-box button {
+  background: #1d9bf0;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.example {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+.features-inline {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: #16a34a;
+  font-weight: 500;
+}
+
+/* HOW TO */
+.how-to {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.how-to h2 {
+  font-size: 32px;
+}
+
+.how-sub {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.step-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.step-icon {
+  font-size: 34px;
+  margin-bottom: 15px;
+}
+
+/* WHY USE */
+.why-use {
+  padding: 80px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.why-use h2 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.why-sub {
+  color: #666;
+  margin-bottom: 50px;
+}
+
+.why-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.why-card {
+  background: #fff;
+  border: 1px solid #eaeef3;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.why-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #1d9bf0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* FAQ */
+.faq-section {
+  padding: 80px 20px;
+  background: #f9fbfd;
+  text-align: center;
+}
+
+.faq-section h2 {
+  font-size: 32px;
+}
+
+.faq-sub {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+}
+
+.faq-list details {
+  background: #fff;
+  border: 1px solid #e5eaf0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+}
+
+.faq-list summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-list p {
+  margin-top: 12px;
+  color: #555;
+}
+
+/* ================= DOWNLOAD RESULTS ================= */
+.results {
+  margin-top: 35px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.results h3 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #111;
+  font-weight: 700;
+}
+
+
+.download-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-decoration: none;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1d9bf0, #0a66c2);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 18px rgba(29, 155, 240, 0.35);
+}
+
+.download-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(29, 155, 240, 0.45);
+}
+
+
+.download-quality {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+
+.download-link.sd {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.download-link.hd {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.download-link.fhd {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.download-link.gif {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
