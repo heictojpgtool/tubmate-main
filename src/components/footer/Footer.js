@@ -20,9 +20,7 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      {/* TOP */}
       <div className="footer-top">
-        {/* LOGO + TEXT */}
         <div className="footer-brand">
           <div className="logo">𝕏</div>
           <h3>Twitter Video Downloader</h3>
@@ -31,16 +29,12 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* LINKS */}
-        <div className="footer-links">
-          <h4>Quick Links</h4>
-          <a href="#">How to Use</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="/contact">Contact Us</a>
-        </div>
+<a href="/how-to-use">How to Use</a>
+<a href="/privacy-policy">Privacy Policy</a>
+<a href="/terms-of-service">Terms of Service</a>
+<a href="/contact">Contact Us</a>
 
-        {/* PLATFORMS */}
+
         <div className="footer-platforms">
           <h4>Supported Platforms</h4>
           <div className="platform-tags">
@@ -52,7 +46,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* DISCLAIMER */}
       <div className="footer-disclaimer">
         <strong>Disclaimer:</strong> This tool is not affiliated with Twitter or
         X Corp. All trademarks belong to their respective owners. This service
@@ -60,7 +53,6 @@ export default function Footer() {
         property rights.
       </div>
 
-      {/* BOTTOM */}
       <div className="footer-bottom">
         <p>© 2026 Twitter Video Downloader. All rights reserved.</p>
         <p className="made">

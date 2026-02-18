@@ -25,7 +25,7 @@ export default function Navbar() {
 
         {/* RIGHT LINK */}
         <nav className={styles.nav}>
-          <Link href="#how-to" className={styles.navLink}>
+          <Link href="/how-to-use" className={styles.navLink}>
             How to Use
           </Link>
         </nav>
