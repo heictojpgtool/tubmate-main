@@ -4,8 +4,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /checkout/
 
-Sitemap: https://jigsawplanet.us/sitemap.xml
-
-
-
-
+Sitemap: https://twittervideodownload.com.in/sitemap.xml
