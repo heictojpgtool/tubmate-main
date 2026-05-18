@@ -29,11 +29,13 @@ export default function Footer() {
           </p>
         </div>
 
-<a href="/how-to-use">How to Use</a>
-<a href="/privacy-policy">Privacy Policy</a>
-<a href="/terms-of-service">Terms of Service</a>
-<a href="/contact">Contact Us</a>
-
+        <nav className="footer-nav">
+          <h4>Quick Links</h4>
+          <a href="/how-to-use">How to Use</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-of-service">Terms of Service</a>
+          <a href="/contact">Contact Us</a>
+        </nav>
 
         <div className="footer-platforms">
           <h4>Supported Platforms</h4>

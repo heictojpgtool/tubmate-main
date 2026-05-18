@@ -1,0 +1,158 @@
+/* terms-of-service.module.css — matches privacy-policy design system */
+
+/* ── Hero ── */
+.pageHero {
+  text-align: center;
+  padding: 70px 20px 50px;
+  background: #f6fbff;
+}
+
+.pageHero h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 14px;
+  color: #14171a;
+}
+
+.pageHero h1 span {
+  color: #1d9bf0;
+}
+
+.pageHero p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── Body ── */
+.policyBody {
+  background: #f9fafb;
+  border-top: 1px solid #e8ecf0;
+  padding: 60px 20px 80px;
+}
+
+.policyInner {
+  max-width: 840px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #4a5568;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 48px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+}
+
+.policyInner h2 {
+  font-size: clamp(20px, 3.5vw, 26px);
+  font-weight: 700;
+  color: #14171a;
+  margin: 0 0 20px;
+}
+
+.policyInner h3 {
+  font-size: clamp(16px, 2.5vw, 19px);
+  font-weight: 600;
+  color: #14171a;
+  margin: 40px 0 12px;
+  padding-left: 16px;
+  border-left: 4px solid #1d9bf0;
+  line-height: 1.35;
+}
+
+.policyInner p {
+  margin: 0 0 18px;
+}
+
+.policyInner ul {
+  margin: 0 0 20px;
+  padding-left: 26px;
+}
+
+.policyInner li {
+  margin-bottom: 10px;
+  line-height: 1.75;
+}
+
+.policyInner strong {
+  color: #14171a;
+  font-weight: 600;
+}
+
+.policyInner a {
+  color: #1d9bf0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.policyInner a:hover {
+  color: #0a66c2;
+}
+
+.lastUpdated {
+  display: inline-block;
+  margin-bottom: 28px;
+  background: #f0f9ff;
+  color: #1d9bf0;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #bae3ff;
+}
+
+.policyNote {
+  margin-top: 36px;
+  padding: 16px 20px;
+  background: #edf2f7;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.7;
+}
+
+.policyNote a {
+  color: #1d9bf0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ── Footer Nav ── */
+.footerNav {
+  text-align: center;
+  padding: 28px 20px;
+  background: #fff;
+  border-top: 1px solid #e8ecf0;
+}
+
+.footerNav a {
+  color: #1d9bf0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 14px;
+  transition: color 0.2s ease;
+}
+
+.footerNav a:hover {
+  color: #0a66c2;
+}
+
+.footerNav .active {
+  color: #14171a;
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .policyInner {
+    padding: 28px 20px;
+  }
+
+  .footerNav a {
+    margin: 0 8px;
+  }
+}

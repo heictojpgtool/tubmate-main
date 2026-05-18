@@ -1,12 +1,12 @@
 export const metadata = {
-  title: "Twitter Video Downloader – Download Twitter & X Videos in HD",
+  title: "Twitter Video Downloader – Download X/Twitter Videos HD",
   description:
-    "Free Twitter video downloader to download Twitter/X videos and GIFs in HD quality. No watermark, no signup required. Fast & easy online tool.",
+    "Download Twitter and X videos online for free in HD quality. No login required. Paste tweet URL and save MP4 videos instantly on any device.",
 
   openGraph: {
-    title: "Twitter Video Downloader – Download Twitter Videos Online",
+    title: "Twitter Video Downloader – Free HD Download",
     description:
-      "Download Twitter & X videos and GIFs online in HD quality. 100% free, no watermark, no registration required.",
+      "Paste any tweet URL and download the video in HD. Free, fast, no login needed.",
     url: "https://twittervideodownload.com.in",
     siteName: "Twitter Video Downloader",
     images: [

@@ -1,12 +1,45 @@
+/* ============================================================
+   home.css  —  Twitter Video Downloader
+   Production-ready | Core Web Vitals optimized
+   ============================================================ */
+
+/* ── Animations ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Reset / Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
 .hero-downloader {
   text-align: center;
-  padding: 80px 20px;
+  padding: 80px 20px 60px;
   background: #f6fbff;
 }
 
 .hero-downloader h1 {
-  font-size: 42px;
+  font-size: clamp(28px, 5vw, 42px);
   font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  color: #14171a;
 }
 
 .hero-downloader h1 span {
@@ -14,121 +47,419 @@
 }
 
 .hero-sub {
-  max-width: 700px;
-  margin: 15px auto 35px;
+  max-width: 680px;
+  margin: 0 auto 35px;
   color: #555;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
+/* ── Download box ── */
 .download-box {
   display: flex;
-  justify-content: center;
   gap: 10px;
-  max-width: 650px;
-  margin: auto;
+  max-width: 700px;
+  margin: 0 auto 14px;
   background: #fff;
-  padding: 15px;
+  padding: 14px 16px;
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
 }
 
 .download-box input {
   flex: 1;
-  border: none;
-  outline: none;
+  min-width: 220px;
+  padding: 12px 14px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
   font-size: 16px;
+  color: #14171a;
+  transition: border-color 0.2s ease;
+  /* Prevent CLS on focus */
+  outline: none;
 }
 
-.download-box button {
+.download-box input:focus {
+  border-color: #1d9bf0;
+}
+
+/* ── Buttons ── */
+.paste-btn,
+.download-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  /* Prevent layout shift — explicit height */
+  height: 46px;
+  white-space: nowrap;
+}
+
+.paste-btn {
+  background: #f5f8fa;
+  color: #14171a;
+}
+
+.paste-btn:hover:not(:disabled) {
+  background: #e1e8ed;
+}
+
+.download-btn {
   background: #1d9bf0;
   color: #fff;
-  border: none;
-  padding: 12px 26px;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
+.download-btn:hover:not(:disabled) {
+  background: #1a91da;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(29, 155, 240, 0.35);
+}
+
+.paste-btn:disabled,
+.download-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Helper text ── */
 .example {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #888;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #9aabb5;
 }
 
+/* ── Feature chips ── */
 .features-inline {
-  margin-top: 25px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
   flex-wrap: wrap;
+  margin-top: 22px;
   color: #16a34a;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-/* HOW TO */
+/* ── Error text ── */
+.error-text {
+  color: #e0245e;
+  margin: 14px auto 0;
+  max-width: 700px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 12px 18px;
+  background: #fff5f7;
+  border-radius: 8px;
+  border-left: 4px solid #e0245e;
+  text-align: left;
+}
+
+/* ── Stats bar ── */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 32px auto 0;
+  padding: 22px 20px;
+  max-width: 680px;
+  background: #fff;
+  border: 1px solid #e8ecf0;
+  border-radius: 14px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-item strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d9bf0;
+  line-height: 1;
+}
+
+.stat-item span {
+  font-size: 12px;
+  color: #657786;
+  white-space: nowrap;
+}
+
+/* ── Loading ── */
+.loading-container {
+  text-align: center;
+  padding: 30px 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 24px auto 0;
+  max-width: 700px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e8ecf0;
+  border-top-color: #1d9bf0;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 0 auto;
+}
+
+.loading-text {
+  margin-top: 14px;
+  color: #1d9bf0;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.skeleton-loader {
+  height: 160px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #efefef 25%, #f7f7f7 37%, #efefef 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  margin-top: 18px;
+  /* contain prevents repaints from affecting parent */
+  contain: strict;
+}
+
+/* ============================================================
+   RESULTS
+   ============================================================ */
+.results {
+  margin: 32px auto 0;
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px 24px;
+  max-width: 680px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.35s ease-out both;
+  text-align: left;
+}
+
+.results h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #17bf63;
+  margin: 0 0 18px;
+}
+
+.video-preview {
+  margin: 0 0 16px;
+}
+
+.video-preview video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.09);
+  /* Reserve space — prevent CLS */
+  aspect-ratio: 16 / 9;
+  background: #000;
+  display: block;
+}
+
+.video-title {
+  font-size: 13px;
+  color: #657786;
+  margin: 0 0 18px;
+  padding: 10px 14px;
+  background: #f5f8fa;
+  border-radius: 8px;
+  line-height: 1.5;
+  /* Prevent very long titles from breaking layout */
+  overflow-wrap: break-word;
+}
+
+.download-options h4 {
+  margin: 0 0 14px;
+  color: #14171a;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* ── Download quality links ── */
+.download-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-decoration: none;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1d9bf0, #0a66c2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(29, 155, 240, 0.3);
+  will-change: transform;
+}
+
+.download-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(29, 155, 240, 0.42);
+}
+
+.download-link:last-child {
+  margin-bottom: 0;
+}
+
+.download-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.download-quality {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.download-size {
+  font-size: 12px;
+  opacity: 0.85;
+  padding-left: 4px;
+}
+
+.download-arrow {
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* ── Quality color variants ── */
+.download-link.sd  { background: linear-gradient(135deg, #10b981, #059669); }
+.download-link.hd  { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.download-link.fhd { background: linear-gradient(135deg, #f97316, #ea580c); }
+.download-link.gif { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+/* ============================================================
+   HOW TO
+   ============================================================ */
 .how-to {
   padding: 80px 20px;
   text-align: center;
+  background: #fff;
 }
 
 .how-to h2 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  color: #14171a;
+  margin: 0 0 10px;
 }
 
 .how-sub {
   color: #666;
-  margin-bottom: 40px;
+  margin: 0 0 40px;
+  font-size: 16px;
 }
 
 .steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  gap: 24px;
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .step-card {
-  background: #fff;
-  padding: 30px;
+  background: #f9fbfd;
+  padding: 30px 26px;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.step-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #14171a;
+  margin: 12px 0 10px;
+}
+
+.step-card p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
 }
 
 .step-icon {
-  font-size: 34px;
-  margin-bottom: 15px;
+  font-size: 32px;
+  line-height: 1;
 }
 
-/* WHY USE */
+/* ============================================================
+   WHY USE
+   ============================================================ */
 .why-use {
   padding: 80px 20px;
-  background: #fff;
+  background: #f6fbff;
   text-align: center;
 }
 
 .why-use h2 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
+  color: #14171a;
+  margin: 0 0 10px;
 }
 
 .why-sub {
   color: #666;
-  margin-bottom: 50px;
+  margin: 0 0 46px;
+  font-size: 16px;
 }
 
 .why-grid {
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 22px;
 }
 
 .why-card {
   background: #fff;
-  border: 1px solid #eaeef3;
-  padding: 30px;
+  border: 1px solid #e8eef4;
+  padding: 28px 24px;
   border-radius: 16px;
   text-align: left;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.why-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+}
+
+.why-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #14171a;
+  margin: 12px 0 8px;
+}
+
+.why-card p {
+  font-size: 14px;
+  color: #657786;
+  margin: 0;
+  line-height: 1.6;
 }
 
 .why-icon {
@@ -141,130 +472,218 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  margin-bottom: 15px;
+  font-size: 16px;
 }
 
-/* FAQ */
+/* ============================================================
+   FAQ
+   ============================================================ */
 .faq-section {
   padding: 80px 20px;
-  background: #f9fbfd;
+  background: #fff;
   text-align: center;
 }
 
 .faq-section h2 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  color: #14171a;
+  margin: 0 0 10px;
 }
 
 .faq-sub {
   color: #666;
-  margin-bottom: 40px;
+  margin: 0 0 40px;
+  font-size: 16px;
 }
 
 .faq-list {
-  max-width: 900px;
-  margin: auto;
+  max-width: 860px;
+  margin: 0 auto;
   text-align: left;
 }
 
 .faq-list details {
-  background: #fff;
+  background: #f9fbfd;
   border: 1px solid #e5eaf0;
   border-radius: 12px;
   padding: 18px 22px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  /* Prevent layout shift when opening */
+  overflow: hidden;
 }
 
 .faq-list summary {
   font-weight: 600;
+  font-size: 15px;
+  color: #14171a;
   cursor: pointer;
   list-style: none;
-}
-
-.faq-list p {
-  margin-top: 12px;
-  color: #555;
-}
-
-/* ================= DOWNLOAD RESULTS ================= */
-.results {
-  margin-top: 35px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 22px;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-.results h3 {
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 18px;
-  color: #111;
-  font-weight: 700;
-}
-
-
-.download-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  text-decoration: none;
-  padding: 14px 18px;
-  margin-bottom: 14px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #1d9bf0, #0a66c2);
-  color: #fff;
+  user-select: none;
+}
+
+.faq-list summary::after {
+  content: "＋";
+  font-size: 18px;
+  color: #1d9bf0;
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: transform 0.2s ease;
+}
+
+.faq-list details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+/* Remove default marker in Safari */
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list p {
+  margin: 14px 0 4px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SEO ARTICLE
+   ============================================================ */
+.seo-article {
+  background: #f9fafb;
+  border-top: 1px solid #e8ecf0;
+  padding: 80px 20px;
+}
+
+.seo-inner {
+  max-width: 840px;
+  margin: 0 auto;
   font-size: 16px;
-  font-weight: 600;
-  transition: all 0.25s ease;
-  box-shadow: 0 8px 18px rgba(29, 155, 240, 0.35);
+  line-height: 1.9;
+  color: #4a5568;
 }
 
-.download-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(29, 155, 240, 0.45);
-}
-
-
-.download-quality {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 13px;
+.seo-inner h2 {
+  font-size: clamp(22px, 3.5vw, 30px);
   font-weight: 700;
+  color: #14171a;
+  margin: 0 0 22px;
+  line-height: 1.35;
 }
 
-
-
-.download-link.sd {
-  background: linear-gradient(135deg, #10b981, #059669);
+.seo-inner h3 {
+  font-size: clamp(17px, 2.5vw, 21px);
+  font-weight: 600;
+  color: #14171a;
+  margin: 48px 0 14px;
+  padding-left: 16px;
+  border-left: 4px solid #1d9bf0;
+  line-height: 1.35;
 }
 
-.download-link.hd {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+.seo-inner p {
+  margin: 0 0 20px;
 }
 
-.download-link.fhd {
-  background: linear-gradient(135deg, #f97316, #ea580c);
+.seo-inner ul,
+.seo-inner ol {
+  margin: 0 0 22px;
+  padding-left: 26px;
 }
 
-.download-link.gif {
-  background: linear-gradient(135deg, #ec4899, #db2777);
+.seo-inner li {
+  margin-bottom: 10px;
+  line-height: 1.75;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
+.seo-inner strong {
+  color: #14171a;
+  font-weight: 600;
+}
+
+.seo-note {
+  margin-top: 40px;
+  padding: 16px 20px;
+  background: #edf2f7;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .download-box {
+    flex-direction: column;
+    gap: 10px;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .download-box input,
+  .paste-btn,
+  .download-btn {
+    width: 100%;
+    height: auto;
+    padding: 14px 18px;
+  }
+
+  .stats-bar {
+    gap: 18px;
+    padding: 18px 16px;
+  }
+
+  .stat-item strong {
+    font-size: 19px;
+  }
+
+  .hero-downloader {
+    padding: 50px 16px 40px;
+  }
+
+  .results {
+    padding: 20px 16px;
+  }
+
+  .download-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .download-arrow {
+    align-self: flex-end;
+  }
+
+  .seo-inner h3 {
+    padding-left: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-inline {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  .step-card,
+  .why-card {
+    padding: 22px 18px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION — respect user preference
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
